@@ -14,7 +14,7 @@ services:
       context: ./todo-app
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_BACKEND_BASE_PATH=http://localhost:3001
+        - NEXT_PUBLIC_BACKEND_BASE_PATH=${NEXT_PUBLIC_BACKEND_BASE_PATH}
     ports:
       - "3000:3000"
     depends_on:
