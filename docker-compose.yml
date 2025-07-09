@@ -5,7 +5,7 @@ services:
       context: ./todo-backend
       dockerfile: Dockerfile
     env_file:
-      - .env
+      - backend.env
     ports:
       - "3001:3001"
     restart: unless-stopped
@@ -15,7 +15,7 @@ services:
       context: ./todo-app
       dockerfile: Dockerfile
     env_file:
-      - .env
+      - app.env
     ports:
       - "3000:3000"
     depends_on:
