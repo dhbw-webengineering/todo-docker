@@ -3,17 +3,8 @@ services:
     build:
       context: ./todo-backend
       dockerfile: Dockerfile
-    environment:
-      SMTP_HOST: mail.example.com
-      SMTP_PORT: 465
-      SMTP_USER: todo@example.com
-      SMTP_PASS: your_smtp_password
-      SMTP_FROM: todo@example.com
-      DATABASE_URL: postgresql://user:pass@host/db?sslmode=require
-      COOKIE_SECRET: your_cookie_secret
-      JWT_SECRET: your_jwt_secret
-      PORT: 3001
-      FRONTEND_URL: http://localhost:3000
+    env_file:
+      - /.env
     ports:
       - "3001:3001"
     restart: unless-stopped
@@ -22,9 +13,8 @@ services:
     build:
       context: ./todo-app
       dockerfile: Dockerfile
-    environment:
-      BACKEND_URL: http://todo-backend:3001
-      PORT: 3000
+    env_file:
+      - /.env
     ports:
       - "3000:3000"
     depends_on:
