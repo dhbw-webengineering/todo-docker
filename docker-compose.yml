@@ -1,11 +1,10 @@
-version: '3.8'
 services:
   todo-backend:
     build:
       context: ./todo-backend
       dockerfile: Dockerfile
     env_file:
-      - backend.env
+      - .env
     ports:
       - "3001:3001"
     restart: unless-stopped
@@ -14,8 +13,8 @@ services:
     build:
       context: ./todo-app
       dockerfile: Dockerfile
-    env_file:
-      - app.env
+      args:
+        - NEXT_PUBLIC_BACKEND_BASE_PATH=http://localhost:3001
     ports:
       - "3000:3000"
     depends_on:
