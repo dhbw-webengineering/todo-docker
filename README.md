@@ -197,13 +197,6 @@ docker-compose down
 docker-compose up --build --force-recreate
 ```
 
-## Wichtig zu beachten
-
-1. **Sichere Secrets**: Verwenden Sie starke, zufällige Werte für `COOKIE_SECRET` und `JWT_SECRET`
-2. **Produktions-Datenbank**: Konfigurieren Sie eine dedizierte PostgreSQL-Instanz
-3. **HTTPS**: Richten Sie einen Reverse-Proxy (nginx) mit SSL-Terminierung ein
-4. **Monitoring**: Implementieren Sie Logging und Monitoring-Lösungen
-
 [^1]: https://github.com/dhbw-webengineering/todo-docker
 
 [^2]: https://github.com/dhbw-webengineering/todo-docker/blob/main/docker-compose.yml
